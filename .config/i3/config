@@ -256,7 +256,7 @@ for_window [class="Spotify"] move to workspace 4
 # Set inner/outer gaps
 gaps inner 10
 gaps right 0
-gaps top 0
+gaps top -5
 gaps bottom -5
 # border_radius 5
 
