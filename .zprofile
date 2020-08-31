@@ -1,0 +1,5 @@
+
+# from bash profile
+if [[ -n "`which luarocks 2>/dev/null`" ]]; then
+    eval `luarocks path --bin`
+fi
