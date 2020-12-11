@@ -1,0 +1,12 @@
+/** Configured For Applets **/
+
+configuration {
+  modi: "window,run,ssh,combi,drun";
+  show-icons:         true;
+  icon-theme:         "Papirus";
+  location: 2;
+  yoffset: 25;
+  xoffset: -20;
+  combi-hide-mode-prefix: true;
+  lines: 5;
+}

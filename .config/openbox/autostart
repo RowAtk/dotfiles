@@ -1,0 +1,33 @@
+#!/bin/bash
+# Autostart programs
+
+#compositor
+picom &
+
+# pcmanfm
+pcmanfm -d &
+
+# dock / panel
+tint2 &
+#cairo-dock -o &
+
+# notifications
+deadd-notification-center &
+
+# wifi
+nm-applet &
+
+# volume cntrol
+volctl &
+
+# music control daemon
+playerctld daemon &
+
+# power-manager
+xfce4-power-manager &
+
+# background
+feh --bg-fill --randomize ~/wallpaper/* &
+
+#conky
+# conky -d &

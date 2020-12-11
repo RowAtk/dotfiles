@@ -1,0 +1,6 @@
+Taglist
+TaskList
+LayoutWidget
+Get windows to display
+Widgets
+Colour palette
