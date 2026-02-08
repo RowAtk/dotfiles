@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1764637098368248-1</unique-id>
+	<command> kitty -e neovim %F </command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Open With NVim in Kitty</name>
+	<submenu></submenu>
+	<unique-id>1764638786027043-1</unique-id>
+	<command>kitty nvim %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+</action>
+</actions>

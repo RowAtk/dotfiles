@@ -1,0 +1,3 @@
+[Added Associations]
+application/x-shellscript=nvim.desktop;kitty-open.desktop;vim.desktop;
+text/plain=vim.desktop;

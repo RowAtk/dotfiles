@@ -1,0 +1,10 @@
+terminal:
+    command: ghostty
+    args:
+        - -e
+tui_apps:
+    - nvim
+    - vim
+    - nano
+    - htop
+    - lazygit

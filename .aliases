@@ -1,0 +1,11 @@
+# Custom Aliases
+alias l="ls -apcghG --color"
+alias browser="nohup firefox &"
+alias refresh="source ~/.zshrc"
+alias aliases="vim ~/.aliases"
+alias crons="crontab -l > /home/rowana/.cron/backup.crontab && crontab -e && crontab -l > ~/.cron/jobs.crontab"
+alias home="cd ~"
+alias wm="start-hyprland"
+alias restart-waybar="pkill waybar && hyprctl dispatch exec waybar"
+alias edit="$EDITOR"
+alias cgit='/usr/bin/git --git-dir=/home/rowana/.cfg/ --work-tree=/home/rowana'

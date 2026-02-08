@@ -1,0 +1,17 @@
+bash
+wxit
+exit
+ls
+cd ~\
+ls -a
+cd rowana/
+cd ~
+ls
+ls -a
+cd .config/
+ls -a
+cd kitty/
+ls -a
+ls
+pacman -S zsh
+sudo pacman -S zsh
