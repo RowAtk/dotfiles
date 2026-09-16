@@ -25,32 +25,61 @@ hl.config({
     },
 
     general = {
+        gaps_in = 4,
         gaps_out = 10,
         border_size = 2,
+        resize_on_border = false,
+        allow_tearing = false,
+        layout = "dwindle",
 
         col = {
             active_border = {
                 colors = {
-                    "rgba(9933ffee)",
-                    "rgba(00ff99ee)",
+                    "rgba(7dd3fbee)",
+                    "rgba(f472b6ee)",
                 },
-                angle = 45,
+                angle = 35,
             },
-            inactive_border = "rgba(595959aa)",
+            inactive_border = "rgba(303846aa)",
         },
     },
 
     decoration = {
-        rounding = 10,
-        inactive_opacity = 0.8,
+        rounding = 12,
+        rounding_power = 2,
+        active_opacity = 0.98,
+        inactive_opacity = 0.86,
+
+        shadow = {
+            enabled = true,
+            range = 18,
+            render_power = 3,
+            color = "rgba(02061755)",
+        },
 
         blur = {
-            size = 5,
+            enabled = true,
+            size = 7,
+            passes = 2,
+            vibrancy = 0.18,
+            ignore_opacity = true,
         },
+    },
+
+    dwindle = {
+        pseudotile = true,
+        preserve_split = true,
+    },
+
+    master = {
+        new_status = "master",
     },
 
     input = {
         follow_mouse = 0,
+        touchpad = {
+            natural_scroll = false,
+        },
     },
 
     misc = {
