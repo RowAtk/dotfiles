@@ -9,3 +9,4 @@ alias wm="start-hyprland"
 alias restart-waybar="pkill waybar && hyprctl dispatch exec waybar"
 alias edit="$EDITOR"
 alias cgit='/usr/bin/git --git-dir=/home/rowana/.cfg/ --work-tree=/home/rowana'
+alias wm="start-hyprland"

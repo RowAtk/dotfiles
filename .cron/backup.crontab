@@ -1,1 +1,1 @@
-*/10 * * * * /home/rowana/bin/randwall >> /home/rowana/cron.log 2>&1
+*/10 * * * * /home/rowana/bin/randwall >> /home/rowana/.cron/cron.log 2>&1
