@@ -2,6 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 5 Free", Roboto, Helvetica, Arial, sans-serif;
+    font-feature-settings: "tnum";
     font-size: 13px;
     font-weight: 600;
     min-height: 0;
@@ -108,6 +109,7 @@ button:hover {
 
 #pulseaudio {
     color: #bae6fd;
+    min-width: 68px;
 }
 
 #pulseaudio.muted {
@@ -116,6 +118,7 @@ button:hover {
 
 #network {
     color: #a7f3d0;
+    min-width: 118px;
 }
 
 #network.disconnected {
@@ -124,6 +127,7 @@ button:hover {
 
 #bluetooth {
     color: #c4b5fd;
+    min-width: 108px;
 }
 
 #bluetooth.disabled,
@@ -143,17 +147,24 @@ button:hover {
     color: #86efac;
 }
 
+#power-profiles-daemon {
+    min-width: 22px;
+}
+
 #cpu {
     color: #93c5fd;
+    min-width: 58px;
 }
 
 #memory {
     color: #f0abfc;
+    min-width: 58px;
 }
 
 #clock {
     background: rgba(125, 211, 252, 0.14);
     color: #e0f2fe;
+    min-width: 168px;
 }
 
 #tray {
