@@ -88,6 +88,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("pidof hypridle >/dev/null || hypridle")
     hl.exec_cmd("vicinae server")
 end)
 
@@ -447,6 +448,46 @@ hl.window_rule({
         pin = false,
     },
     no_initial_focus = true,
+})
+
+-- Keep utility dialogs light and Mac-like.
+hl.window_rule({
+    name = "float-audio-settings",
+    match = {
+        class = "pavucontrol",
+    },
+    float = true,
+    center = true,
+    size = { 900, 640 },
+})
+
+hl.window_rule({
+    name = "float-bluetooth-manager",
+    match = {
+        class = "blueman-manager",
+    },
+    float = true,
+    center = true,
+    size = { 900, 640 },
+})
+
+hl.window_rule({
+    name = "float-file-chooser",
+    match = {
+        title = ".*(Open|Save|Choose|Select).*",
+    },
+    float = true,
+    center = true,
+})
+
+hl.window_rule({
+    name = "picture-in-picture",
+    match = {
+        title = ".*[Pp]icture.*[Pp]icture.*",
+    },
+    float = true,
+    pin = true,
+    keep_aspect_ratio = true,
 })
 
 -- ============================================================

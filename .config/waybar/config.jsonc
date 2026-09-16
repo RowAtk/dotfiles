@@ -17,10 +17,13 @@
     ],
     "modules-right": [
         "tray",
+        "custom/wallpaper",
+        "custom/updates",
         "pulseaudio",
         "network",
         "bluetooth",
         "power-profiles-daemon",
+        "temperature",
         "cpu",
         "memory",
         "clock",
@@ -126,6 +129,14 @@
         }
     },
 
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 85,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "tooltip": false
+    },
+
     "cpu": {
         "interval": 2,
         "format": " {usage}%",
@@ -157,5 +168,20 @@
         "format": "",
         "tooltip": false,
         "on-click": "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
+    },
+
+    "custom/updates": {
+        "interval": 3600,
+        "exec": "sh -c 'official=$(checkupdates 2>/dev/null | wc -l); aur=$(yay -Qua 2>/dev/null | wc -l); total=$((official + aur)); printf \"󰚰 %s\\n\" \"$total\"'",
+        "tooltip": true,
+        "tooltip-format": "Available package updates",
+        "on-click": "kitty -e yay"
+    },
+
+    "custom/wallpaper": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Next wallpaper",
+        "on-click": "/home/rowana/bin/randwall"
     }
 }

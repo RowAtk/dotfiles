@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-    background: rgba(10, 14, 22, 0.66);
+    background: rgba(10, 14, 22, 0.44);
     border: 1px solid rgba(125, 211, 252, 0.18);
     border-radius: 12px;
     color: #dbeafe;
@@ -56,11 +56,14 @@ button:hover {
 #network,
 #bluetooth,
 #power-profiles-daemon,
+#temperature,
 #cpu,
 #memory,
 #clock,
+#custom-updates,
+#custom-wallpaper,
 #custom-power {
-    background: rgba(15, 23, 42, 0.58);
+    background: rgba(15, 23, 42, 0.38);
     border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 999px;
     color: #dbeafe;
@@ -151,6 +154,15 @@ button:hover {
     min-width: 22px;
 }
 
+#temperature {
+    color: #fbbf24;
+    min-width: 58px;
+}
+
+#temperature.critical {
+    color: #fca5a5;
+}
+
 #cpu {
     color: #93c5fd;
     min-width: 58px;
@@ -162,9 +174,19 @@ button:hover {
 }
 
 #clock {
-    background: rgba(125, 211, 252, 0.14);
+    background: rgba(125, 211, 252, 0.1);
     color: #e0f2fe;
     min-width: 168px;
+}
+
+#custom-updates {
+    color: #86efac;
+    min-width: 48px;
+}
+
+#custom-wallpaper {
+    color: #f9a8d4;
+    min-width: 22px;
 }
 
 #tray {
@@ -183,7 +205,7 @@ button:hover {
 }
 
 #custom-power {
-    background: rgba(244, 114, 182, 0.16);
+    background: rgba(244, 114, 182, 0.12);
     color: #f9a8d4;
     padding-left: 12px;
     padding-right: 12px;
