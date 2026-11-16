@@ -41,16 +41,9 @@
         "tooltip-format": "System"
     },
     "mpris": {
-        "format": "{status_icon} {dynamic}",
-        "format-paused": "{status_icon} {dynamic}",
+        "format": "{status_icon} {title} — {artist}",
+        "format-paused": "{status_icon} {title} — {artist}",
         "status-icons": {"playing": "", "paused": "", "stopped": ""},
-        "dynamic-order": ["title", "artist"],
-        "dynamic-importance-order": [],
-        "title-len": 16,
-        "artist-len": 10,
-        "dynamic-separator": " — ",
-        "ellipsis": "...",
-        "dynamic-len": 36,
         "min-length": 38,
         "max-length": 38,
         "align": 0,
