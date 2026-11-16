@@ -16,7 +16,7 @@
         "clock"
     ],
     "modules-right": [
-        "mpris",
+        "custom/media",
         "group/system",
         "custom/wallpaper",
         "pulseaudio",
@@ -40,16 +40,17 @@
         "format": "",
         "tooltip-format": "System"
     },
-    "mpris": {
-        "format": "{status_icon} {title} — {artist}",
-        "format-paused": "{status_icon} {title} — {artist}",
-        "status-icons": {"playing": "", "paused": "", "stopped": ""},
+    "custom/media": {
+        "exec": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/waybar-media.py",
+        "return-type": "json",
+        "restart-interval": 3,
+        "format": "{}",
         "min-length": 38,
         "max-length": 38,
         "align": 0,
-        "tooltip-format": "{player}: {title} — {artist}",
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next"
+        "on-click": "playerctl --player=spotify play-pause",
+        "on-click-right": "playerctl --player=spotify next",
+        "on-click-middle": "playerctl --player=spotify previous"
     },
 
     "hyprland/workspaces": {

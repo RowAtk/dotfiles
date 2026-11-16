@@ -58,12 +58,12 @@ button:hover {
     color: #e7b99b;
     font-weight: bold;
 }
-#mpris, #pulseaudio, #network, #bluetooth, #idle_inhibitor,
+#custom-media, #pulseaudio, #network, #bluetooth, #idle_inhibitor,
 #tray, #custom-power, #custom-wallpaper, #custom-system,
 #cpu, #memory, #temperature, #custom-updates, #power-profiles-daemon {
     padding: 0 9px;
 }
-#mpris {
+#custom-media {
     color: #79b8ad;
     min-width: 176px;
     margin-right: 4px;
