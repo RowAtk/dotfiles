@@ -4,6 +4,9 @@ Enabled charcoal-wallpaper.timer in the systemd user manager.
 First run is ten minutes after timer activation, then ten minutes after each
 service activation. It belongs to graphical-session.target and stops with it.
 The service invokes this experiment worktree's desktop-theme.py --random.
+Hyprland Lua autostart explicitly imports WAYLAND_DISPLAY and
+HYPRLAND_INSTANCE_SIGNATURE into the user manager, then starts the timer.
+Starting an already-active systemd timer does not create a duplicate timer.
 Session variables WAYLAND_DISPLAY and HYPRLAND_INSTANCE_SIGNATURE must exist
 in the user manager (verified for the current session).
 
@@ -27,7 +30,9 @@ Right-click copper reset lasts until the next manual or scheduled theme change.
 Pause the timer to retain copper indefinitely.
 
 Rollback: disable timer first, stop the oneshot service if active, preserve any
-subsequent edits, restore backed-up hyprpaper.conf, then restart Hyprpaper.
+subsequent edits and remove the charcoal-wallpaper.timer startup command from
+the live Hyprland Lua config. Otherwise the next Hyprland startup starts it again.
+Restore backed-up hyprpaper.conf after checking for later edits, then restart Hyprpaper.
 Remove only the two new charcoal-wallpaper user units, then daemon-reload.
 Keep the experiment worktree while its service is installed; the unit refers to it.
 Live user-unit files and hyprpaper config are experimental home changes, not merged.
