@@ -1,0 +1,8 @@
+[Unit]
+Description=Idle dimming for Boring mode
+PartOf=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+ExecStart=/usr/bin/hyprsunset --gamma 65 --temperature 3800
+TimeoutStopSec=3

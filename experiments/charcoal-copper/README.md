@@ -8,6 +8,8 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 Switchable profiles and Boring mode are now available; see design-switcher.md.
 No lock-screen package or automatic locking is part of this experiment.
+Animated idle behavior is enabled for visual profiles, with dim/off in Boring;
+see screensaver-trial.md for measurements, controls and rollback.
 
 - Initial palette and Linux keybindings are staged in this worktree only.
 - SwayNC trial is installed and running. See swaync-trial.md for additions,

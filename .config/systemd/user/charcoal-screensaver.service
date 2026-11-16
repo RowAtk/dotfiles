@@ -1,0 +1,11 @@
+[Unit]
+Description=Idle-only Wayland animated screensaver
+PartOf=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-screensaver.py --run
+KillMode=control-group
+TimeoutStopSec=3
+Nice=10

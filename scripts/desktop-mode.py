@@ -48,6 +48,8 @@ def main():
         return
     lock = (STATE / "lock").open("w")
     fcntl.flock(lock, fcntl.LOCK_EX)
+    run(["systemctl", "--user", "stop", "charcoal-screensaver.service",
+         "charcoal-idle-dim.service"])
     boring = FLAG.exists() if args.restore else args.boring or (not args.normal and not FLAG.exists())
     if boring:
         if not FLAG.exists():
