@@ -78,6 +78,8 @@ button:hover {
 #pulseaudio { min-width: 68px; }
 #network, #bluetooth, #idle_inhibitor, #custom-wallpaper { min-width: 18px; }
 #network { color: #79b8ad; }
+#network, #bluetooth { font-size: 16px; }
+#bluetooth.connected { color: #79b8ad; }
 #pulseaudio.muted, #network.disconnected, #temperature.critical { color: #e38d91; }
 #bluetooth.off, #bluetooth.disabled { color: #736d68; }
 #idle_inhibitor.activated { color: #d99a73; }

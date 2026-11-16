@@ -139,7 +139,9 @@
 
     "tray": {
         "icon-size": 16,
-        "spacing": 8
+        "spacing": 8,
+        // Dedicated widgets below handle these; keep applets running for agents.
+        "ignore-list": ["nm_applet", "nm-applet", "blueman"]
     },
 
     "pulseaudio": {
@@ -160,11 +162,12 @@
     },
 
     "network": {
-        "format-wifi": "󰖩",
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
         "format-ethernet": "󰈀",
         "format-linked": "󰈀",
-        "format-disconnected": "󰖪",
-        "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%",
+        "format-disconnected": "󰤮",
+        "tooltip-format-wifi": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nClick to manage connections",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "Network disconnected",
         "on-click": "nm-connection-editor"
@@ -172,8 +175,8 @@
 
     "bluetooth": {
         "format": "󰂯",
-        "format-connected": "󰂯",
-        "format-connected-battery": "󰂯",
+        "format-connected": "󰂱",
+        "format-connected-battery": "󰂱",
         "format-disabled": "󰂲",
         "format-off": "󰂲",
         "tooltip-format": "{controller_alias}\t{controller_address}",

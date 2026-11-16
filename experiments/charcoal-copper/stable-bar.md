@@ -31,6 +31,15 @@ network, Bluetooth, idle, CPU/RAM, clock, power and media controls. Existing the
 colours and numeric widths retained; no additional packages or icon daemon.
 Glyph names verified against the Nerd Fonts upstream glyphnames.json.
 
+Follow-up: hide nm_applet/nm-applet and blueman tray items by targeted ignore-list
+entries. Dedicated network/Bluetooth modules remain. Applets remain running for
+authentication and pairing; unrelated application tray icons remain visible.
+Network now uses four signal-strength glyphs and Bluetooth a distinct connected
+glyph. Both render at 16px, with connected Bluetooth using the secondary colour.
+Undo by removing only these ignore-list entries and restoring their module/CSS
+formats. No startup/service/package changes for this cleanup. Classic remains
+the original snapshot and is intentionally not given the experiment's widgets.
+
 Validation: all four tiled clients kept identical positions and dimensions
 after initial setup, while Waybar was stopped, and after restart. Reserved area
 remained [0,46,0,0]. Reapplying the current Wallpaper Colours profile retained
