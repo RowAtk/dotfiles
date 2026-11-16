@@ -35,8 +35,8 @@ hl.config({
         col = {
             active_border = {
                 colors = {
-                    "rgba(7dd3fbee)",
-                    "rgba(f472b6ee)",
+                    "rgba(d99a73ee)",
+                    "rgba(79b8adee)",
                 },
                 angle = 35,
             },
@@ -45,10 +45,10 @@ hl.config({
     },
 
     decoration = {
-        rounding = 12,
+        rounding = 8,
         rounding_power = 2,
-        active_opacity = 0.98,
-        inactive_opacity = 0.86,
+        active_opacity = 1.0,
+        inactive_opacity = 0.97,
 
         shadow = {
             enabled = true,
@@ -262,55 +262,19 @@ hl.gesture({
 -- Keybinds
 -- ============================================================
 
--- macOS-like Command shortcuts. Hyprland owns SUPER, so translate the common
--- app shortcuts to their Linux Ctrl equivalents.
-local ctrlKeys = {
-    "A", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-    "N", "O", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-}
-
-for _, key in ipairs(ctrlKeys) do
-    hl.bind(
-        mainMod .. " + " .. key,
-        hl.dsp.send_shortcut({
-            mods = "CTRL",
-            key = key,
-        }),
-        { repeating = true }
-    )
-end
-
--- macOS-style redo
-hl.bind(
-    mainMod .. " + SHIFT + Z",
-    hl.dsp.send_shortcut({
-        mods = "CTRL",
-        key = "Y",
-    }),
-    { repeating = true }
-)
-
 -- Applications / window management
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close({}))
-hl.bind(mainMod .. " + M", hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.focus({ workspace = "special:minimized" }))
 hl.bind(mainMod .. " + CTRL + M", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
--- macOS-style text navigation in GUI apps
-hl.bind(mainMod .. " + left", hl.dsp.send_shortcut({ mods = "", key = "HOME" }), { repeating = true })
-hl.bind(mainMod .. " + right", hl.dsp.send_shortcut({ mods = "", key = "END" }), { repeating = true })
-hl.bind(mainMod .. " + up", hl.dsp.send_shortcut({ mods = "CTRL", key = "HOME" }), { repeating = true })
-hl.bind(mainMod .. " + down", hl.dsp.send_shortcut({ mods = "CTRL", key = "END" }), { repeating = true })
-
--- Window focus, moved off the plain Command-arrow muscle memory
-hl.bind(mainMod .. " + ALT + left",  hl.dsp.focus({ direction = "l" }))
-hl.bind(mainMod .. " + ALT + right", hl.dsp.focus({ direction = "r" }))
-hl.bind(mainMod .. " + ALT + up",    hl.dsp.focus({ direction = "u" }))
-hl.bind(mainMod .. " + ALT + down",  hl.dsp.focus({ direction = "d" }))
+-- Native application shortcuts stay with the application; SUPER controls the WM.
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "l" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "r" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "u" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "d" }))
 
 -- Workspaces 1-10
 for i = 1, 10 do

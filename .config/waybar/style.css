@@ -9,10 +9,10 @@
 }
 
 window#waybar {
-    background: rgba(10, 14, 22, 0.44);
-    border: 1px solid rgba(125, 211, 252, 0.18);
-    border-radius: 12px;
-    color: #dbeafe;
+    background: rgba(24, 24, 26, 0.78);
+    border: 1px solid rgba(217, 154, 115, 0.28);
+    border-radius: 8px;
+    color: #e4ded7;
 }
 
 window#waybar.hidden {
@@ -63,10 +63,10 @@ button:hover {
 #custom-updates,
 #custom-wallpaper,
 #custom-power {
-    background: rgba(15, 23, 42, 0.38);
-    border: 1px solid rgba(148, 163, 184, 0.14);
-    border-radius: 999px;
-    color: #dbeafe;
+    background: rgba(38, 37, 38, 0.58);
+    border: 1px solid rgba(217, 154, 115, 0.12);
+    border-radius: 6px;
+    color: #e4ded7;
     margin: 0 2px;
     padding: 0 10px;
 }
@@ -85,8 +85,8 @@ button:hover {
 
 #workspaces button.active,
 #workspaces button.focused {
-    background: rgba(125, 211, 252, 0.2);
-    color: #7dd3fc;
+    background: rgba(217, 154, 115, 0.2);
+    color: #d99a73;
 }
 
 #workspaces button.visible {
@@ -174,8 +174,8 @@ button:hover {
 }
 
 #clock {
-    background: rgba(125, 211, 252, 0.1);
-    color: #e0f2fe;
+    background: rgba(217, 154, 115, 0.12);
+    color: #e4ded7;
     min-width: 168px;
 }
 
