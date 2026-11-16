@@ -24,6 +24,7 @@
         "bluetooth",
         "idle_inhibitor",
         "tray",
+        "custom/notifications",
         "custom/power"
     ],
 
@@ -39,6 +40,25 @@
     "custom/system": {
         "format": "",
         "tooltip-format": "System"
+    },
+    "custom/notifications": {
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "restart-interval": 3,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "tooltip": true
     },
     "custom/media": {
         "exec": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/waybar-media.py",

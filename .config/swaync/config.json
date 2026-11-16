@@ -1,0 +1,55 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "ignore-gtk-theme": true,
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "control-center-margin-top": 56,
+  "control-center-margin-right": 12,
+  "control-center-margin-bottom": 12,
+  "control-center-margin-left": 12,
+  "control-center-width": 390,
+  "control-center-height": 720,
+  "notification-window-width": 390,
+  "fit-to-screen": true,
+  "timeout": 7,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+  "keyboard-shortcuts": true,
+  "notification-grouping": true,
+  "notification-inline-replies": false,
+  "transition-time": 180,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "volume",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "volume": {
+      "label": "",
+      "show-per-app": true,
+      "expand-per-app": false
+    },
+    "mpris": {
+      "autohide": true,
+      "show-album-art": "always",
+      "loop-carousel": false
+    },
+    "notifications": {
+      "vexpand": true
+    }
+  }
+}

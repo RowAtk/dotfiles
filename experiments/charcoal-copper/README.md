@@ -7,7 +7,8 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 ## State
 
 - Initial palette and Linux keybindings are staged in this worktree only.
-- No packages installed or removed by this experiment yet.
+- SwayNC trial is installed and running. See swaync-trial.md for additions,
+  measurements and rollback. Dunst remains installed; its service is stopped.
 - Initial Waybar preview was accepted. Live Hyprland Lua and Kitty configs now
   match the experiment versions; these are deliberate uncommitted changes in
   the home/main worktree, not a merge into main.

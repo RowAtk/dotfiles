@@ -1,0 +1,36 @@
+:root {
+    --cc-bg: rgba(24, 24, 26, 0.96);
+    --noti-border-color: rgba(217, 154, 115, 0.28);
+    --noti-bg: 38, 37, 38;
+    --noti-bg-alpha: 0.96;
+    --noti-bg-darker: #18181a;
+    --noti-bg-hover: #38312c;
+    --noti-bg-focus: #38312c;
+    --noti-close-bg: #494039;
+    --noti-close-bg-hover: #6d5445;
+    --text-color: #e4ded7;
+    --text-color-disabled: #9e9893;
+    --bg-selected: #d99a73;
+    --border-radius: 8px;
+    --font-size-body: 13px;
+    --font-size-summary: 14px;
+}
+* { font-family: "JetBrainsMono Nerd Font", sans-serif; }
+.control-center {
+    border: 1px solid rgba(217, 154, 115, 0.32);
+    padding: 8px;
+}
+.widget-title { color: #d99a73; }
+.widget-dnd, .widget-volume, .widget-mpris {
+    background: #262526;
+    border: 1px solid rgba(217, 154, 115, 0.12);
+    border-radius: 8px;
+}
+.widget-title > button {
+    background: #38312c;
+    color: #e4ded7;
+    border-radius: 6px;
+}
+switch:checked, scale highlight { background: #d99a73; }
+.notification.critical { border-color: #e38d91; }
+.widget-mpris { color: #79b8ad; }
