@@ -34,6 +34,8 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 Wallpaper palette trial is active; see matugen-trial.md for controls, generated
 files, backups, package additions, and rollback.
+Synchronized ten-minute rotation is enabled; see rotation-trial.md to pause,
+disable, or revert the timer and independent Hyprpaper rotation changes.
 
 packages-before.txt records installed names and versions before experimentation.
 Core candidates (currently absent): matugen, swaync, hyprlock.

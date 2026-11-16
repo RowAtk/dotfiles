@@ -1,0 +1,12 @@
+[Unit]
+Description=Rotate wallpaper and coordinated desktop palette
+After=graphical-session.target
+PartOf=graphical-session.target
+ConditionEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-theme.py --random
+WorkingDirectory=/home/rowana/projects/wm-charcoal-copper
+TimeoutStartSec=90

@@ -45,7 +45,7 @@ def main():
     image = args.image.expanduser().resolve() if args.image else None
     if args.random:
         images = [p for p in (HOME / "wallpapers").iterdir()
-                  if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
+                  if p.is_file() and p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
         previous = current.read_text().strip() if current.exists() else ""
         choices = [p for p in images if str(p) != previous] or images
         if not choices:
@@ -73,8 +73,8 @@ def main():
         rendered[name] = Template(template).substitute(colors)
     if image and not args.prepare and not args.copper:
         monitors = json.loads(run(["hyprctl", "-j", "monitors"], capture_output=True).stdout)
-        monitor = next((m["name"] for m in monitors if m.get("focused")), "")
-        run(["hyprctl", "hyprpaper", "wallpaper", f"{monitor},{image},cover"])
+        for monitor in monitors:
+            run(["hyprctl", "hyprpaper", "wallpaper", f"{monitor['name']},{image},cover"])
         write(current, str(image) + "\n")
     for name, value in rendered.items():
         write(STATE / name, value)

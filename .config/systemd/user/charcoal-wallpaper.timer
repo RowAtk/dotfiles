@@ -1,0 +1,12 @@
+[Unit]
+Description=Rotate wallpaper and palette every ten minutes
+PartOf=graphical-session.target
+
+[Timer]
+OnActiveSec=10min
+OnUnitActiveSec=10min
+AccuracySec=1s
+Unit=charcoal-wallpaper.service
+
+[Install]
+WantedBy=graphical-session.target
