@@ -5,7 +5,8 @@
     "exclusive": false,
     "reload_style_on_change": true,
     "height": 38,
-    "margin-top": 8,
+    // Non-exclusive layers start below Hyprland's 46px reservation: 8 - 46.
+    "margin-top": -38,
     "margin-left": 12,
     "margin-right": 12,
     "spacing": 2,

@@ -6,6 +6,12 @@ or rebuilding its layer surface no longer changes the tiled work area. The
 reservation also remains when the bar is hidden. Future themes should fit in
 this strip or deliberately update the shared reservation.
 
+Non-exclusive layers are positioned relative to the remaining work area on
+this Hyprland version. Waybar therefore uses margin-top=-38 (8 minus the 46px
+reservation), placing its actual top at y=8. The same compensation is applied
+to generated Classic config. An initial margin of 8 incorrectly placed the bar
+at y=54; corrected after user feedback and verified against hyprctl layers.
+
 The Classic Git snapshot gets the same non-exclusive override when materialized;
 the original Git snapshot is unchanged. Live home Waybar config is an older
 snapshot, left untouched; the running experiment explicitly loads the worktree
@@ -29,9 +35,12 @@ Validation: all four tiled clients kept identical positions and dimensions
 after initial setup, while Waybar was stopped, and after restart. Reserved area
 remained [0,46,0,0]. Reapplying the current Wallpaper Colours profile retained
 Waybar's PID and client geometry. Exactly one bar remained; configerrors empty.
+After offset correction, the bar rectangle is x=12,y=8,w=1896,h=38, and all
+tiled client positions and sizes remain unchanged across the config reload.
 
 Rollback: remove reserved_area from both Lua copies AND restore exclusive=true
 (or remove the false override) for the experiment and generated Classic config.
+Restore margin-top=8 at the same time.
 Reload compositor and bar together. Removing only the reservation allows windows
 to overlap the bar; removing only the exclusive override doubles the gap.
 Pre-change live Lua backup: ~/.local/state/charcoal-copper/hyprland-before-fixed-bar.lua.

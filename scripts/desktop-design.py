@@ -72,6 +72,7 @@ def main():
                 if key == "config":
                     # Snapshot visuals share the permanent compositor reservation.
                     text = text.replace("{", '{\n    "exclusive": false,\n    "reload_style_on_change": true,', 1)
+                    text = text.replace('"margin-top": 8', '"margin-top": -38', 1)
                 (snapshot / name).write_text(text)
             config, style = snapshot / "config.jsonc", snapshot / "style.css"
         command = ["waybar", "-c", str(config), "-s", str(style)]
