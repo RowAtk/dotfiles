@@ -1,3 +1,9 @@
 [Added Associations]
 application/x-shellscript=nvim.desktop;kitty-open.desktop;vim.desktop;
 text/plain=vim.desktop;
+image/jpeg=firefox.desktop;
+image/png=firefox.desktop;
+
+[Default Applications]
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/bruno=bruno.desktop

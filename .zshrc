@@ -119,6 +119,7 @@ compinit
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export BROWSER='firefox'
 
 export PATH="$PATH:$HOME/bin:$(go env GOBIN):$(go env GOPATH)/bin"
 
