@@ -1,0 +1,7 @@
+[
+  {"id":"copper","name":"Copper","description":"Three glass sections, copper accents, wallpaper rotation paused"},
+  {"id":"wallpaper","name":"Wallpaper Colours","description":"Three glass sections, colours from wallpaper, ten-minute rotation"},
+  {"id":"boring","name":"Boring","description":"Solid background, no blur/shadows/animations, static media text"},
+  {"id":"classic","name":"Classic Bar","description":"Original full-width bar from Git; current Linux shortcuts retained",
+   "ref":"6a4c70c","config":".config/waybar/config.jsonc","style":".config/waybar/style.css"}
+]

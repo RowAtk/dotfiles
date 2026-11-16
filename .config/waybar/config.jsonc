@@ -19,6 +19,8 @@
         "custom/media",
         "group/system",
         "custom/wallpaper",
+        "custom/mode",
+        "custom/designs",
         "pulseaudio",
         "network",
         "bluetooth",
@@ -40,6 +42,19 @@
     "custom/system": {
         "format": "",
         "tooltip-format": "System"
+    },
+    "custom/mode": {
+        "exec": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-mode.py --status",
+        "return-type": "json",
+        "interval": 3,
+        "format": "{}",
+        "on-click": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-mode.py",
+        "tooltip": true
+    },
+    "custom/designs": {
+        "format": "",
+        "tooltip-format": "Desktop designs",
+        "on-click": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-design.py"
     },
     "custom/notifications": {
         "exec": "swaync-client -swb",

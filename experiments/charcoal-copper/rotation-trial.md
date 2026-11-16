@@ -4,8 +4,9 @@ Enabled charcoal-wallpaper.timer in the systemd user manager.
 First run is ten minutes after timer activation, then ten minutes after each
 service activation. It belongs to graphical-session.target and stops with it.
 The service invokes this experiment worktree's desktop-theme.py --random.
-Hyprland Lua autostart explicitly imports WAYLAND_DISPLAY and
-HYPRLAND_INSTANCE_SIGNATURE into the user manager, then starts the timer.
+Hyprland Lua autostart imports WAYLAND_DISPLAY and HYPRLAND_INSTANCE_SIGNATURE
+into the user manager, then restores the selected desktop profile. The Wallpaper
+profile starts this timer; Copper and Boring stop it.
 Starting an already-active systemd timer does not create a duplicate timer.
 Session variables WAYLAND_DISPLAY and HYPRLAND_INSTANCE_SIGNATURE must exist
 in the user manager (verified for the current session).

@@ -86,5 +86,8 @@ button:hover {
 #custom-notifications { color: #d99a73; min-width: 18px; }
 #custom-notifications.dnd-notification, #custom-notifications.dnd-none { color: #9e9893; }
 #tray { margin-left: 4px; }
+#custom-mode { padding: 0 9px; min-width: 18px; }
+#custom-designs { padding: 0 9px; min-width: 18px; }
+#custom-mode.boring { color: #79b8ad; }
 #tray > .passive { -gtk-icon-effect: dim; }
 #tray > .needs-attention { -gtk-icon-effect: highlight; }

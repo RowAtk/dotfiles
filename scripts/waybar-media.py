@@ -3,6 +3,7 @@
 
 import html
 import json
+from pathlib import Path
 import subprocess
 import time
 import unicodedata
@@ -50,6 +51,7 @@ def main():
     hold = HOLD
     refresh_at = 0
     while True:
+        boring = (Path.home() / ".local/state/charcoal-copper/boring").exists()
         now = time.monotonic()
         if now >= refresh_at:
             status = query("status")
@@ -68,14 +70,14 @@ def main():
             long = sum(cells(char) for char in label) > WIDTH
             # Repeat with a gap so a long label wraps without an abrupt jump.
             ring = label + "     " + label
-            visible = clip(ring[offset:], WIDTH) if long else label
+            visible = clip(label, WIDTH - 3) + "..." if long and boring else clip(ring[offset:], WIDTH) if long else label
             icon = "" if status == "Playing" else ""
             output = {
                 "text": html.escape(icon + " " + visible),
                 "tooltip": html.escape(label),
                 "class": status.lower(),
             }
-            if long:
+            if long and not boring:
                 if hold:
                     hold -= 1
                 else:
@@ -84,7 +86,7 @@ def main():
                         offset, hold = 0, HOLD
 
         print(json.dumps(output, ensure_ascii=False), flush=True)
-        time.sleep(STEP)
+        time.sleep(2 if boring else STEP)
 
 
 if __name__ == "__main__":

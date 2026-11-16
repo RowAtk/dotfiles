@@ -41,6 +41,9 @@ def main():
     STATE.mkdir(parents=True, exist_ok=True)
     lock = (STATE / "lock").open("w")
     fcntl.flock(lock, fcntl.LOCK_EX)
+    if (STATE / "boring").exists() and not args.prepare:
+        print("Boring mode is active; theme rotation skipped.")
+        return
     current = STATE / "current-wallpaper"
     image = args.image.expanduser().resolve() if args.image else None
     if args.random:

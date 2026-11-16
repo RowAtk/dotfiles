@@ -6,6 +6,10 @@ local menu        = "vicinae toggle"
 local browser     = "firefox"
 local mainMod     = "SUPER"
 
+local mode_file = io.open(os.getenv("HOME") .. "/.local/state/charcoal-copper/boring", "r")
+local boring = mode_file ~= nil
+if mode_file then mode_file:close() end
+
 local palette = { primary = "#d99a73", secondary = "#79b8ad" }
 local loaded, generated = pcall(dofile, os.getenv("HOME") .. "/.local/state/charcoal-copper/palette.lua")
 if loaded and type(generated) == "table" then
@@ -92,9 +96,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("blueman-applet")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE && systemctl --user start charcoal-wallpaper.timer")
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE && python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-design.py --restore")
     hl.exec_cmd("pidof hypridle >/dev/null || hypridle")
     hl.exec_cmd("vicinae server")
 end)
@@ -276,6 +278,7 @@ hl.bind(mainMod .. " + CTRL + M", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-design.py"))
 
 -- Native application shortcuts stay with the application; SUPER controls the WM.
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "l" }))
@@ -470,7 +473,17 @@ hl.layer_rule({
     match = {
         namespace = "vicinae",
     },
-    blur = true,
+    blur = not boring,
     ignore_alpha = 0,
     no_anim = true,
+})
+
+hl.config({
+    animations = { enabled = not boring },
+    decoration = {
+        blur = { enabled = not boring },
+        shadow = { enabled = not boring },
+        active_opacity = 1.0,
+        inactive_opacity = boring and 1.0 or 0.97,
+    },
 })

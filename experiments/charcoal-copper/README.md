@@ -6,6 +6,9 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 ## State
 
+Switchable profiles and Boring mode are now available; see design-switcher.md.
+No lock-screen package or automatic locking is part of this experiment.
+
 - Initial palette and Linux keybindings are staged in this worktree only.
 - SwayNC trial is installed and running. See swaync-trial.md for additions,
   measurements and rollback. Dunst remains installed; its service is stopped.
