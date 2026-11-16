@@ -8,8 +8,19 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 - Initial palette and Linux keybindings are staged in this worktree only.
 - No packages installed or removed by this experiment yet.
-- Live home config files remain unchanged. Waybar alone was restarted using the
-  experiment config and style; no Hyprland reload or application restart occurred.
+- Initial Waybar preview was accepted. Live Hyprland Lua and Kitty configs now
+  match the experiment versions; these are deliberate uncommitted changes in
+  the home/main worktree, not a merge into main.
+- Originals are backed up at:
+  /home/rowana/.local/state/wm-charcoal-copper-backup.ayPSPZUm/hyprland.lua
+  /home/rowana/.local/state/wm-charcoal-copper-backup.ayPSPZUm/kitty.conf
+- Hyprland config-only reload succeeded; subsequent configerrors was empty.
+  Live binds confirm no global Command translation and SUPER-arrow focus.
+  Kitty received USR1 to reload without closing shells. Applications stayed open.
+- To roll back this stage, compare live files against experiment copies first
+  to identify subsequent edits, then restore these two backups to their original
+  config paths, run hyprctl reload config-only and check hyprctl configerrors.
+  Reload Kitty with USR1 again. Restore the original Waybar separately if desired.
 - Three-section Waybar preview is active: workspaces/app, clock, media/status.
   Hover the sliders icon to reveal the system drawer. Click media to play/pause;
   right-click media to skip. Clock click toggles date format; calendar is a tooltip.
