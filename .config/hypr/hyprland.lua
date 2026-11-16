@@ -6,6 +6,12 @@ local menu        = "vicinae toggle"
 local browser     = "firefox"
 local mainMod     = "SUPER"
 
+local palette = { primary = "#d99a73", secondary = "#79b8ad" }
+local loaded, generated = pcall(dofile, os.getenv("HOME") .. "/.local/state/charcoal-copper/palette.lua")
+if loaded and type(generated) == "table" then
+    palette = generated
+end
+
 -- Monitor
 hl.monitor({
     output = "",
@@ -35,8 +41,8 @@ hl.config({
         col = {
             active_border = {
                 colors = {
-                    "rgba(d99a73ee)",
-                    "rgba(79b8adee)",
+                    "rgba(" .. palette.primary:sub(2) .. "ee)",
+                    "rgba(" .. palette.secondary:sub(2) .. "ee)",
                 },
                 angle = 35,
             },

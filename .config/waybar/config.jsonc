@@ -233,6 +233,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "Next wallpaper",
-        "on-click": "/home/rowana/bin/randwall"
+        "on-click": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-theme.py --random",
+        "on-click-right": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-theme.py --copper"
     }
 }

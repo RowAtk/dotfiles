@@ -1,0 +1,90 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-feature-settings: "tnum";
+    font-size: 12px;
+    min-height: 0;
+}
+window#waybar {
+    background: transparent;
+    color: ${fg};
+}
+.modules-left, .modules-center, .modules-right {
+    background: rgba(${bg_rgb}, 0.88);
+    border: 1px solid rgba(${primary_rgb}, 0.32);
+    border-radius: 8px;
+    padding: 0 8px;
+}
+tooltip {
+    background: ${surface};
+    color: ${fg};
+    border: 1px solid ${outline};
+    border-radius: 8px;
+}
+button {
+    background: transparent;
+    box-shadow: none;
+    color: ${muted};
+}
+button:hover {
+    background: rgba(${primary_rgb}, 0.14);
+    box-shadow: none;
+}
+#workspaces button {
+    min-width: 22px;
+    padding: 0 4px;
+    margin: 5px 1px;
+    border-radius: 4px;
+}
+#workspaces button.active {
+    background: ${primary};
+    color: ${bg};
+}
+#workspaces button.urgent {
+    background: ${error};
+    color: ${fg};
+}
+#workspaces button.empty { color: ${muted}; }
+#window {
+    padding: 0 12px;
+    margin-left: 8px;
+    border-left: 1px solid ${outline};
+    color: ${fg};
+}
+#clock {
+    padding: 0 18px;
+    min-width: 230px;
+    color: ${primary};
+    font-weight: bold;
+}
+#custom-media, #pulseaudio, #network, #bluetooth, #idle_inhibitor,
+#tray, #custom-power, #custom-wallpaper, #custom-system, #custom-notifications,
+#cpu, #memory, #temperature, #custom-updates, #power-profiles-daemon {
+    padding: 0 9px;
+}
+#custom-media {
+    color: ${secondary};
+    min-width: 176px;
+    margin-right: 4px;
+    border-right: 1px solid ${outline};
+}
+#custom-system { color: ${primary}; min-width: 18px; }
+#cpu, #memory, #temperature {
+    min-width: 64px;
+    color: ${fg};
+}
+#custom-updates { min-width: 56px; color: ${secondary}; }
+#pulseaudio { min-width: 68px; }
+#network, #bluetooth, #idle_inhibitor, #custom-wallpaper { min-width: 18px; }
+#network { color: ${secondary}; }
+#pulseaudio.muted, #network.disconnected, #temperature.critical { color: ${error}; }
+#bluetooth.off, #bluetooth.disabled { color: ${muted}; }
+#idle_inhibitor.activated { color: ${primary}; }
+#custom-power { color: ${error}; margin-left: 3px; }
+#custom-wallpaper { color: ${primary}; }
+#custom-notifications { color: ${primary}; min-width: 18px; }
+#custom-notifications.dnd-notification, #custom-notifications.dnd-none { color: ${muted}; }
+#tray { margin-left: 4px; }
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }

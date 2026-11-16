@@ -32,6 +32,9 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 ## Package Ledger
 
+Wallpaper palette trial is active; see matugen-trial.md for controls, generated
+files, backups, package additions, and rollback.
+
 packages-before.txt records installed names and versions before experimentation.
 Core candidates (currently absent): matugen, swaync, hyprlock.
 Screenshot candidates (currently absent): grim, slurp.

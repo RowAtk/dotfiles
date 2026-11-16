@@ -1,0 +1,36 @@
+:root {
+    --cc-bg: rgba(${bg_rgb}, 0.96);
+    --noti-border-color: rgba(${primary_rgb}, 0.28);
+    --noti-bg: ${surface_rgb};
+    --noti-bg-alpha: 0.96;
+    --noti-bg-darker: ${bg};
+    --noti-bg-hover: ${surface};
+    --noti-bg-focus: ${surface};
+    --noti-close-bg: ${outline};
+    --noti-close-bg-hover: ${outline};
+    --text-color: ${fg};
+    --text-color-disabled: ${muted};
+    --bg-selected: ${primary};
+    --border-radius: 8px;
+    --font-size-body: 13px;
+    --font-size-summary: 14px;
+}
+* { font-family: "JetBrainsMono Nerd Font", sans-serif; }
+.control-center {
+    border: 1px solid rgba(${primary_rgb}, 0.32);
+    padding: 8px;
+}
+.widget-title { color: ${primary}; }
+.widget-dnd, .widget-volume, .widget-mpris {
+    background: ${surface};
+    border: 1px solid rgba(${primary_rgb}, 0.12);
+    border-radius: 8px;
+}
+.widget-title > button {
+    background: ${surface};
+    color: ${fg};
+    border-radius: 6px;
+}
+switch:checked, scale highlight { background: ${primary}; }
+.notification.critical { border-color: ${error}; }
+.widget-mpris { color: ${secondary}; }
