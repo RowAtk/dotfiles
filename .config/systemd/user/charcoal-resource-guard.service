@@ -1,0 +1,14 @@
+[Unit]
+Description=Automatic low-effects desktop under sustained resource pressure
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+
+[Service]
+ExecStart=/usr/bin/python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-resource-guard.py
+Restart=on-failure
+RestartSec=10
+Nice=10
+
+[Install]
+WantedBy=graphical-session.target

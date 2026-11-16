@@ -1,0 +1,10 @@
+{
+  "sample_seconds": 5,
+  "cpu_high": 95,
+  "memory_high": 90,
+  "trigger_seconds": 15,
+  "cpu_low": 75,
+  "memory_low": 80,
+  "recovery_seconds": 60,
+  "minimum_hold_seconds": 90
+}

@@ -10,6 +10,8 @@ Switchable profiles and Boring mode are now available; see design-switcher.md.
 No lock-screen package or automatic locking is part of this experiment.
 Animated idle behavior is enabled for visual profiles, with dim/off in Boring;
 see screensaver-trial.md for measurements, controls and rollback.
+The current animation is Midnight Maze; see arcade-trial.md. Automatic pressure
+protection is running; see resource-guard-trial.md for thresholds and cleanup.
 
 - Initial palette and Linux keybindings are staged in this worktree only.
 - SwayNC trial is installed and running. See swaync-trial.md for additions,

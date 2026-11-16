@@ -1,7 +1,8 @@
 # Profile-aware Animated Screensaver
 
-No new packages. Uses existing Kitty (native Wayland), Python curses and hypridle.
-Effect: falling-character trails on an opaque dark screen, capped at 8 FPS.
+The falling-character prototype has been replaced by Midnight Maze, a custom
+Pac-Man-inspired attract mode. See arcade-trial.md for dependencies, preview,
+validation and cleanup. The idle/service behavior below remains unchanged.
 No session locking or password prompt.
 
 At five minutes of idle:
@@ -29,7 +30,7 @@ does not launch another persistent hyprsunset instance.
 Python syntax and systemd unit verification passed.
 Two bounded previews launched; Hyprland reported fullscreen=2, xwayland=false,
 and dimensions 1920x1080. Preview service stopped with no remaining saver children.
-One eight-second preview reached 127 MiB service memory peak and consumed about
+The original falling-character prototype's eight-second preview reached 127 MiB service memory peak and consumed about
 1.0 CPU-second including initialization. This is not a settled CPU benchmark;
 the animated mode is materially heavier than dim/display-off and is opt-in
 through choosing a visual profile. No animation worker runs during normal use.
@@ -56,4 +57,4 @@ Stop charcoal-screensaver.service and charcoal-idle-dim.service, then remove
 only these new unit files and run systemctl --user daemon-reload.
 Remove their stop hooks from desktop-mode.py if removing the units.
 Preserve managed hypridle startup or deliberately restore its prior direct launch.
-No package removal is needed.
+For the replacement arcade renderer, also follow arcade-trial.md dependency cleanup.

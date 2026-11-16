@@ -38,13 +38,16 @@ def main():
     parser.add_argument("--status", action="store_true")
     parser.add_argument("--boring", action="store_true")
     parser.add_argument("--normal", action="store_true")
+    parser.add_argument("--automatic", action="store_true")
     args = parser.parse_args()
     STATE.mkdir(parents=True, exist_ok=True)
     if args.status:
         boring = FLAG.exists()
+        owner_file = STATE / "mode-owner"
+        automatic = boring and owner_file.exists() and owner_file.read_text().strip() == "resource-guard"
         print(json.dumps({"text": "" if boring else "",
                           "class": "boring" if boring else "normal",
-                          "tooltip": "Boring mode: " + ("on" if boring else "off")}))
+                          "tooltip": "Boring mode: " + ("automatic (resource pressure)" if automatic else "on" if boring else "off")}))
         return
     lock = (STATE / "lock").open("w")
     fcntl.flock(lock, fcntl.LOCK_EX)
@@ -52,6 +55,8 @@ def main():
          "charcoal-idle-dim.service"])
     boring = FLAG.exists() if args.restore else args.boring or (not args.normal and not FLAG.exists())
     if boring:
+        if not args.restore:
+            (STATE / "mode-owner").write_text("resource-guard\n" if args.automatic else "manual\n")
         if not FLAG.exists():
             enabled = run(["systemctl", "--user", "is-active", TIMER], check=False).returncode == 0
             selected = STATE / "design"
@@ -66,6 +71,7 @@ def main():
             previous = json.loads(SAVED.read_text())
             (STATE / "design").write_text(previous.get("design", "wallpaper") + "\n")
         FLAG.unlink(missing_ok=True)
+        (STATE / "mode-owner").unlink(missing_ok=True)
         current = STATE / "current-wallpaper"
         image = Path(current.read_text().strip()) if current.exists() else Path.home() / "wallpapers/landscape.jpg"
         if not image.is_file():
