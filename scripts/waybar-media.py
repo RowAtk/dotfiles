@@ -56,7 +56,7 @@ def main():
             metadata = query("metadata", "--format", "{{title}}\n{{artist}}")
             parts = [" ".join(part.split()) for part in metadata.splitlines()]
             label = " — ".join(part for part in parts if part)
-            identity = (label, status)
+            identity = label
             if identity != previous:
                 offset, hold = 0, HOLD
                 previous = identity
@@ -75,7 +75,7 @@ def main():
                 "tooltip": html.escape(label),
                 "class": status.lower(),
             }
-            if long and status == "Playing":
+            if long:
                 if hold:
                     hold -= 1
                 else:
