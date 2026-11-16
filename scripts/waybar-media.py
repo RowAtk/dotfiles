@@ -73,7 +73,7 @@ def main():
             visible = clip(label, WIDTH - 3) + "..." if long and boring else clip(ring[offset:], WIDTH) if long else label
             icon = "󰐊" if status == "Playing" else "󰏤"
             output = {
-                "text": html.escape(icon + " " + visible),
+                "text": "<span font_desc='Symbols Nerd Font 12'>" + icon + "</span> " + html.escape(visible),
                 "tooltip": html.escape(label),
                 "class": status.lower(),
             }

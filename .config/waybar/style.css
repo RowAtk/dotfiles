@@ -93,12 +93,15 @@ button:hover {
 /* Equal 32px icon slots; leave text and numeric module widths intact. */
 #network, #bluetooth, #idle_inhibitor, #custom-wallpaper, #custom-system,
 #custom-notifications, #custom-power, #custom-mode, #custom-designs,
-#power-profiles-daemon {
+#custom-tray, #power-profiles-daemon {
     min-width: 20px;
     padding: 0 6px;
     margin-left: 0;
     font-size: 16px;
+    /* Use actual glyph advances, avoiding patched monospace overhang. */
+    font-family: "Symbols Nerd Font";
 }
+#custom-tray { color: #9e9893; }
 #tray { padding: 0 6px; }
 #tray > .passive { -gtk-icon-effect: dim; }
 #tray > .needs-attention { -gtk-icon-effect: highlight; }

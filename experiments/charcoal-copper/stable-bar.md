@@ -40,6 +40,17 @@ Undo by removing only these ignore-list entries and restoring their module/CSS
 formats. No startup/service/package changes for this cleanup. Classic remains
 the original snapshot and is intentionally not given the experiment's widgets.
 
+Icon alignment follow-up: Pango measurements at 16px showed the patched
+JetBrainsMono font reporting a 10px advance for a Wi-Fi glyph with 16px ink.
+Equal module padding did not fix that overhang. Standalone icon modules now
+explicitly use the existing Symbols Nerd Font, whose glyph advances match the
+actual symbol widths. Audio and media embed the same icon font at 12pt (16px)
+with Pango markup while retaining the existing text font and numeric widths.
+Application tray artwork is in a hover drawer behind the ellipsis button;
+expand it to access the original application menus. Duplicate network tray
+filters remain. No new font packages installed. Config/Pango parsing passed;
+bar remains y=8,height=38 with unchanged tiled geometry and no config errors.
+
 Validation: all four tiled clients kept identical positions and dimensions
 after initial setup, while Waybar was stopped, and after restart. Reserved area
 remained [0,46,0,0]. Reapplying the current Wallpaper Colours profile retained

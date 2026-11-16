@@ -28,7 +28,7 @@
         "network",
         "bluetooth",
         "idle_inhibitor",
-        "tray",
+        "group/tray",
         "custom/notifications",
         "custom/power"
     ],
@@ -45,6 +45,19 @@
     "custom/system": {
         "format": "󰘮",
         "tooltip-format": "System"
+    },
+    "group/tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 150,
+            "children-class": "tray-detail",
+            "transition-left-to-right": false
+        },
+        "modules": ["custom/tray", "tray"]
+    },
+    "custom/tray": {
+        "format": "󰇘",
+        "tooltip-format": "Application tray — hover to expand"
     },
     "custom/mode": {
         "exec": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-mode.py --status",
@@ -145,15 +158,15 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰖁 muted",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭 muted",
+        "format": "<span font_desc='Symbols Nerd Font 12'>{icon}</span> {volume}%",
+        "format-muted": "<span font_desc='Symbols Nerd Font 12'>󰖁</span> muted",
+        "format-source": "<span font_desc='Symbols Nerd Font 12'>󰍬</span> {volume}%",
+        "format-source-muted": "<span font_desc='Symbols Nerd Font 12'>󰍭</span> muted",
         "format-icons": {
             "headphone": "󰋋",
             "headset": "󰋋",
-            "portable": "",
-            "car": "",
+            "portable": "󰕾",
+            "car": "󰕾",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
         "scroll-step": 5,
