@@ -8,7 +8,14 @@ The live home worktree stays on main. Never copy this entire worktree over HOME.
 
 - Initial palette and Linux keybindings are staged in this worktree only.
 - No packages installed or removed by this experiment yet.
-- No live configs replaced, services restarted, or desktop reloads performed.
+- Live home config files remain unchanged. Waybar alone was restarted using the
+  experiment config and style; no Hyprland reload or application restart occurred.
+- Three-section Waybar preview is active: workspaces/app, clock, media/status.
+  Hover the sliders icon to reveal the system drawer. Click media to play/pause;
+  right-click media to skip. Clock click toggles date format; calendar is a tooltip.
+- Preview startup log: /tmp/waybar-charcoal-copper.log. Startup has no reported
+  config/style errors; exactly one live process confirmed after activation.
+- Restore normal bar: stop Waybar with pkill -x waybar, then start waybar.
 - Existing uncommitted home files, including .zshrc and Vicinae settings, are excluded.
 
 ## Package Ledger

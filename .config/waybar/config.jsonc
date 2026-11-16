@@ -2,40 +2,63 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
+    "height": 38,
     "margin-top": 8,
     "margin-left": 12,
     "margin-right": 12,
-    "spacing": 8,
+    "spacing": 2,
 
     "modules-left": [
         "hyprland/workspaces",
-        "idle_inhibitor"
-    ],
-    "modules-center": [
         "hyprland/window"
     ],
+    "modules-center": [
+        "clock"
+    ],
     "modules-right": [
-        "tray",
+        "mpris",
+        "group/system",
         "custom/wallpaper",
-        "custom/updates",
         "pulseaudio",
         "network",
         "bluetooth",
-        "power-profiles-daemon",
-        "temperature",
-        "cpu",
-        "memory",
-        "clock",
+        "idle_inhibitor",
+        "tray",
         "custom/power"
     ],
+
+    "group/system": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 250,
+            "children-class": "system-detail",
+            "transition-left-to-right": false
+        },
+        "modules": ["custom/system", "cpu", "memory", "temperature", "custom/updates", "power-profiles-daemon"]
+    },
+    "custom/system": {
+        "format": "",
+        "tooltip-format": "System"
+    },
+    "mpris": {
+        "format": "{status_icon} {dynamic}",
+        "format-paused": "{status_icon} {dynamic}",
+        "status-icons": {"playing": "", "paused": "", "stopped": ""},
+        "dynamic-order": ["title", "artist"],
+        "dynamic-len": 20,
+        "max-length": 22,
+        "tooltip-format": "{player}: {title} — {artist}",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next"
+    },
 
     "hyprland/workspaces": {
         "all-outputs": true,
         "disable-scroll": false,
         "warp-on-scroll": false,
         "sort-by-number": true,
-        "format": "{icon}",
+        "format": "{name}",
+        "persistent-workspaces": {"*": [1, 2, 3, 4, 5]},
         "format-icons": {
             "1": "1",
             "2": "2",
@@ -55,7 +78,10 @@
 
     "hyprland/window": {
         "format": "{}",
-        "max-length": 72,
+        "max-length": 22,
+        "min-length": 22,
+        "icon": true,
+        "icon-size": 16,
         "separate-outputs": true,
         "rewrite": {
             "": "Desktop"
@@ -95,10 +121,10 @@
     },
 
     "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 wired",
-        "format-linked": "󰈀 link",
-        "format-disconnected": "󰤮 offline",
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-linked": "󰈀",
+        "format-disconnected": "󰤮",
         "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "Network disconnected",
@@ -106,11 +132,11 @@
     },
 
     "bluetooth": {
-        "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-        "format-disabled": "󰂲 off",
-        "format-off": "󰂲 off",
+        "format": "",
+        "format-connected": "",
+        "format-connected-battery": "",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -139,13 +165,17 @@
 
     "cpu": {
         "interval": 2,
-        "format": " {usage}%",
+        "format": " {usage:3}%",
+        "min-length": 6,
+        "max-length": 6,
         "tooltip": false
     },
 
     "memory": {
         "interval": 5,
-        "format": " {}%"
+        "format": " {percentage:3}%",
+        "min-length": 6,
+        "max-length": 6
     },
 
     "clock": {
