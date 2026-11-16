@@ -25,6 +25,10 @@ def run(args, **kwargs):
 
 def write(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.name == "waybar.css":
+        # Preserve the inode watched by Gio; close triggers its CSS-only reload.
+        path.write_text(text)
+        return
     with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as file:
         file.write(text)
         name = file.name
@@ -99,8 +103,8 @@ def main():
     write(STATE / "palette.json", json.dumps(colors, indent=2) + "\n")
     if not args.prepare:
         run(["hyprctl", "reload", "config-only"])
-        for command in (["pkill", "-USR2", "-x", "waybar"],
-                        ["pkill", "-USR1", "-x", "kitty"],
+        # Waybar watches its CSS (including imports); don't rebuild layer surfaces.
+        for command in (["pkill", "-USR1", "-x", "kitty"],
                         ["swaync-client", "-rs", "-sw"]):
             subprocess.run(command, timeout=10, check=False)
         print("Theme applied:", "copper" if args.copper else image.name)

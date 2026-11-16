@@ -2,6 +2,8 @@
 {
     "layer": "top",
     "position": "top",
+    "exclusive": false,
+    "reload_style_on_change": true,
     "height": 38,
     "margin-top": 8,
     "margin-left": 12,
@@ -40,7 +42,7 @@
         "modules": ["custom/system", "cpu", "memory", "temperature", "custom/updates", "power-profiles-daemon"]
     },
     "custom/system": {
-        "format": "",
+        "format": "󰘮",
         "tooltip-format": "System"
     },
     "custom/mode": {
@@ -52,7 +54,7 @@
         "tooltip": true
     },
     "custom/designs": {
-        "format": "",
+        "format": "󰏘",
         "tooltip-format": "Desktop designs",
         "on-click": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-design.py"
     },
@@ -62,14 +64,14 @@
         "restart-interval": 3,
         "format": "{icon}",
         "format-icons": {
-            "notification": "",
-            "none": "",
-            "dnd-notification": "",
-            "dnd-none": "",
-            "inhibited-notification": "",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "",
-            "dnd-inhibited-none": ""
+            "notification": "󰅸",
+            "none": "󰂜",
+            "dnd-notification": "󰪑",
+            "dnd-none": "󰪑",
+            "inhibited-notification": "󰅸",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰪑",
+            "dnd-inhibited-none": "󰪑"
         },
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
@@ -129,8 +131,8 @@
         "tooltip-format-activated": "Idle inhibitor active",
         "tooltip-format-deactivated": "Idle inhibitor inactive",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󰛐",
+            "deactivated": "󰛑"
         }
     },
 
@@ -141,15 +143,15 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰝟 muted",
-        "format-source": " {volume}%",
-        "format-source-muted": " muted",
+        "format-muted": "󰖁 muted",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭 muted",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": "󰋋",
+            "headset": "󰋋",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "scroll-step": 5,
         "on-click": "pavucontrol",
@@ -157,10 +159,10 @@
     },
 
     "network": {
-        "format-wifi": "",
+        "format-wifi": "󰖩",
         "format-ethernet": "󰈀",
         "format-linked": "󰈀",
-        "format-disconnected": "󰤮",
+        "format-disconnected": "󰖪",
         "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "Network disconnected",
@@ -168,9 +170,9 @@
     },
 
     "bluetooth": {
-        "format": "",
-        "format-connected": "",
-        "format-connected-battery": "",
+        "format": "󰂯",
+        "format-connected": "󰂯",
+        "format-connected-battery": "󰂯",
         "format-disabled": "󰂲",
         "format-off": "󰂲",
         "tooltip-format": "{controller_alias}\t{controller_address}",
@@ -184,24 +186,24 @@
         "format": "{icon}",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "format-icons": {
-            "performance": "",
-            "balanced": "",
-            "power-saver": "",
-            "default": ""
+            "performance": "󱐋",
+            "balanced": "󰗑",
+            "power-saver": "󰌪",
+            "default": "󱐋"
         }
     },
 
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "critical-threshold": 85,
-        "format": " {temperatureC}°C",
-        "format-critical": " {temperatureC}°C",
+        "format": "󰔏 {temperatureC}°C",
+        "format-critical": "󰸁 {temperatureC}°C",
         "tooltip": false
     },
 
     "cpu": {
         "interval": 2,
-        "format": " {usage:3}%",
+        "format": "󰘚 {usage:3}%",
         "min-length": 6,
         "max-length": 6,
         "tooltip": false
@@ -209,15 +211,15 @@
 
     "memory": {
         "interval": 5,
-        "format": " {percentage:3}%",
+        "format": "󰍛 {percentage:3}%",
         "min-length": 6,
         "max-length": 6
     },
 
     "clock": {
         "interval": 60,
-        "format": " {:%a %d %b  %I:%M %p}",
-        "format-alt": " {:%Y-%m-%d}",
+        "format": "󰅐 {:%a %d %b  %I:%M %p}",
+        "format-alt": "󰸘 {:%Y-%m-%d}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -231,7 +233,7 @@
     },
 
     "custom/power": {
-        "format": "",
+        "format": "󰐥",
         "tooltip": false,
         "on-click": "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
     },
@@ -245,7 +247,7 @@
     },
 
     "custom/wallpaper": {
-        "format": "",
+        "format": "󰸉",
         "tooltip": true,
         "tooltip-format": "Next wallpaper",
         "on-click": "python3 /home/rowana/projects/wm-charcoal-copper/scripts/desktop-theme.py --random",

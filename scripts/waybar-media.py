@@ -71,7 +71,7 @@ def main():
             # Repeat with a gap so a long label wraps without an abrupt jump.
             ring = label + "     " + label
             visible = clip(label, WIDTH - 3) + "..." if long and boring else clip(ring[offset:], WIDTH) if long else label
-            icon = "" if status == "Playing" else ""
+            icon = "󰐊" if status == "Playing" else "󰏤"
             output = {
                 "text": html.escape(icon + " " + visible),
                 "tooltip": html.escape(label),

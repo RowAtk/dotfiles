@@ -45,7 +45,7 @@ def main():
         boring = FLAG.exists()
         owner_file = STATE / "mode-owner"
         automatic = boring and owner_file.exists() and owner_file.read_text().strip() == "resource-guard"
-        print(json.dumps({"text": "" if boring else "",
+        print(json.dumps({"text": "󰌪" if boring else "󱐋",
                           "class": "boring" if boring else "normal",
                           "tooltip": "Boring mode: " + ("automatic (resource pressure)" if automatic else "on" if boring else "off")}))
         return

@@ -12,6 +12,8 @@ Animated idle behavior is enabled for visual profiles, with dim/off in Boring;
 see screensaver-trial.md for measurements, controls and rollback.
 The current animation is Midnight Maze; see arcade-trial.md. Automatic pressure
 protection is running; see resource-guard-trial.md for thresholds and cleanup.
+Bar restarts now preserve tiled window geometry; see stable-bar.md for the
+permanent reservation, CSS reloads, icon refresh and rollback.
 
 - Initial palette and Linux keybindings are staged in this worktree only.
 - SwayNC trial is installed and running. See swaync-trial.md for additions,

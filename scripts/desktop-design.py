@@ -68,22 +68,34 @@ def main():
             for key, name in (("config", "config.jsonc"), ("style", "style.css")):
                 result = run(["git", "--git-dir=" + str(Path.home() / ".cfg"),
                               "show", design["ref"] + ":" + design[key]], capture_output=True)
-                (snapshot / name).write_text(result.stdout)
+                text = result.stdout
+                if key == "config":
+                    # Snapshot visuals share the permanent compositor reservation.
+                    text = text.replace("{", '{\n    "exclusive": false,\n    "reload_style_on_change": true,', 1)
+                (snapshot / name).write_text(text)
             config, style = snapshot / "config.jsonc", snapshot / "style.css"
-        run(["pkill", "-x", "waybar"], check=False)
-        for _ in range(30):
-            if run(["pgrep", "-x", "waybar"], check=False, capture_output=True).returncode:
-                break
-            time.sleep(0.1)
-        else:
-            raise SystemExit("Waybar did not stop; refusing to start a duplicate.")
-        with (STATE / "waybar.log").open("a") as log:
-            process = subprocess.Popen(["waybar", "-c", str(config), "-s", str(style)],
-                                       stdin=subprocess.DEVNULL, stdout=log, stderr=log,
-                                       start_new_session=True)
-        time.sleep(1)
-        if process.poll() is not None:
-            raise SystemExit("Waybar failed; inspect " + str(STATE / "waybar.log"))
+        command = ["waybar", "-c", str(config), "-s", str(style)]
+        pids = run(["pgrep", "-x", "waybar"], check=False, capture_output=True).stdout.split()
+        unchanged = False
+        if len(pids) == 1:
+            try:
+                unchanged = (Path("/proc") / pids[0] / "cmdline").read_bytes().split(b"\0")[:-1] == [arg.encode() for arg in command]
+            except FileNotFoundError:
+                pass
+        if not unchanged:
+            run(["pkill", "-x", "waybar"], check=False)
+            for _ in range(30):
+                if run(["pgrep", "-x", "waybar"], check=False, capture_output=True).returncode:
+                    break
+                time.sleep(0.1)
+            else:
+                raise SystemExit("Waybar did not stop; refusing to start a duplicate.")
+            with (STATE / "waybar.log").open("a") as log:
+                process = subprocess.Popen(command, stdin=subprocess.DEVNULL,
+                                           stdout=log, stderr=log, start_new_session=True)
+            time.sleep(1)
+            if process.poll() is not None:
+                raise SystemExit("Waybar failed; inspect " + str(STATE / "waybar.log"))
         temporary = STATE / "design.tmp"
         temporary.write_text(choice + "\n")
         os.replace(temporary, selected)

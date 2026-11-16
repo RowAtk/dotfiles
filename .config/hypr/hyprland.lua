@@ -22,6 +22,8 @@ hl.monitor({
     mode = "preferred",
     position = "auto",
     scale = "auto",
+    -- Keep window geometry stable while Waybar restarts or is hidden.
+    reserved_area = { top = 46, bottom = 0, left = 0, right = 0 },
 })
 
 -- Environment
