@@ -78,7 +78,6 @@ button:hover {
 #pulseaudio { min-width: 68px; }
 #network, #bluetooth, #idle_inhibitor, #custom-wallpaper { min-width: 18px; }
 #network { color: ${secondary}; }
-#network, #bluetooth { font-size: 16px; }
 #bluetooth.connected { color: ${secondary}; }
 #pulseaudio.muted, #network.disconnected, #temperature.critical { color: ${error}; }
 #bluetooth.off, #bluetooth.disabled { color: ${muted}; }
@@ -91,5 +90,15 @@ button:hover {
 #custom-mode { padding: 0 9px; min-width: 18px; }
 #custom-designs { padding: 0 9px; min-width: 18px; }
 #custom-mode.boring { color: #79b8ad; }
+/* Equal 32px icon slots; leave text and numeric module widths intact. */
+#network, #bluetooth, #idle_inhibitor, #custom-wallpaper, #custom-system,
+#custom-notifications, #custom-power, #custom-mode, #custom-designs,
+#power-profiles-daemon {
+    min-width: 20px;
+    padding: 0 6px;
+    margin-left: 0;
+    font-size: 16px;
+}
+#tray { padding: 0 6px; }
 #tray > .passive { -gtk-icon-effect: dim; }
 #tray > .needs-attention { -gtk-icon-effect: highlight; }
